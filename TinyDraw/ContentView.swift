@@ -17,8 +17,7 @@ struct ContentView: View {
         Canvas { context, size in
             // drawing here
             for stroke in drawing.strokes {
-                var path = Path()
-                path.addLines(stroke.points)
+                let path = Path(curving: stroke.points)
 
                 var contextCopy = context
 

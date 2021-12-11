@@ -14,6 +14,7 @@
 		17EE240B2765207000CA8482 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE240A2765207000CA8482 /* Stroke.swift */; };
 		17EE240D276520AE00CA8482 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE240C276520AE00CA8482 /* Drawing.swift */; };
 		17EE241027652E1000CA8482 /* Color-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE240F27652E1000CA8482 /* Color-Codable.swift */; };
+		17EE24122765304700CA8482 /* Path-Curving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE24112765304700CA8482 /* Path-Curving.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		17EE240C276520AE00CA8482 /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		17EE240E27652B0600CA8482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		17EE240F27652E1000CA8482 /* Color-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Codable.swift"; sourceTree = "<group>"; };
+		17EE24112765304700CA8482 /* Path-Curving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Path-Curving.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +44,6 @@
 		17EE23F02765203000CA8482 = {
 			isa = PBXGroup;
 			children = (
-				17EE240F27652E1000CA8482 /* Color-Codable.swift */,
 				17EE23FB2765203000CA8482 /* TinyDraw */,
 				17EE23FA2765203000CA8482 /* Products */,
 			);
@@ -64,6 +65,8 @@
 				17EE23FE2765203000CA8482 /* ContentView.swift */,
 				17EE240A2765207000CA8482 /* Stroke.swift */,
 				17EE240C276520AE00CA8482 /* Drawing.swift */,
+				17EE240F27652E1000CA8482 /* Color-Codable.swift */,
+				17EE24112765304700CA8482 /* Path-Curving.swift */,
 				17EE24002765203000CA8482 /* Assets.xcassets */,
 				17EE24022765203000CA8482 /* Preview Content */,
 			);
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17EE241027652E1000CA8482 /* Color-Codable.swift in Sources */,
+				17EE24122765304700CA8482 /* Path-Curving.swift in Sources */,
 				17EE240D276520AE00CA8482 /* Drawing.swift in Sources */,
 				17EE23FF2765203000CA8482 /* ContentView.swift in Sources */,
 				17EE240B2765207000CA8482 /* Stroke.swift in Sources */,
