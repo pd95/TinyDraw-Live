@@ -52,6 +52,13 @@ class Drawing: ObservableObject, ReferenceFileDocument {
     required init(configuration: ReadConfiguration) throws {
         if let data = configuration.file.regularFileContents {
             oldStrokes = try JSONDecoder().decode([Stroke].self, from: data)
+
+            if let lastStroke = oldStrokes.last {
+                foregroundColor = lastStroke.color
+                lineWidth = lastStroke.width
+                lineSpacing = lastStroke.spacing
+                blurAmount = lastStroke.blur
+            }
         } else {
             throw CocoaError(.fileReadCorruptFile)
         }
@@ -110,6 +117,5 @@ class Drawing: ObservableObject, ReferenceFileDocument {
 
         oldStrokes.removeLast()
     }
-
 
 }
