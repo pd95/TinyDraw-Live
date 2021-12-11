@@ -18,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		172A17272765354100239DDF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		17EE23F92765203000CA8482 /* TinyDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EE23FC2765203000CA8482 /* TinyDrawApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyDrawApp.swift; sourceTree = "<group>"; };
 		17EE23FE2765203000CA8482 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		17EE23F02765203000CA8482 = {
 			isa = PBXGroup;
 			children = (
+				172A17272765354100239DDF /* README.md */,
 				17EE23FB2765203000CA8482 /* TinyDraw */,
 				17EE23FA2765203000CA8482 /* Products */,
 			);
