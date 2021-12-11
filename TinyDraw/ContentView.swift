@@ -15,7 +15,6 @@ struct ContentView: View {
 
     var body: some View {
         Canvas { context, size in
-            // drawing here
             for stroke in drawing.strokes {
                 let path = Path(curving: stroke.points)
 
@@ -25,7 +24,13 @@ struct ContentView: View {
                     contextCopy.addFilter(.blur(radius: stroke.blur))
                 }
 
-                contextCopy.stroke(path, with: .color(stroke.color), style: StrokeStyle(lineWidth: stroke.width, lineCap: .round, lineJoin: .round, dash: [1, stroke.spacing * stroke.width]))
+                contextCopy.stroke(
+                    path,
+                    with: .color(stroke.color),
+                    style: StrokeStyle(lineWidth: stroke.width,
+                                       lineCap: .round, lineJoin: .round,
+                                       dash: [1, stroke.spacing * stroke.width])
+                )
             }
         }
         .gesture(

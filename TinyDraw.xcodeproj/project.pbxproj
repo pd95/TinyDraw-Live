@@ -60,13 +60,13 @@
 		17EE23FB2765203000CA8482 /* TinyDraw */ = {
 			isa = PBXGroup;
 			children = (
-				17EE240E27652B0600CA8482 /* Info.plist */,
 				17EE23FC2765203000CA8482 /* TinyDrawApp.swift */,
 				17EE23FE2765203000CA8482 /* ContentView.swift */,
 				17EE240A2765207000CA8482 /* Stroke.swift */,
 				17EE240C276520AE00CA8482 /* Drawing.swift */,
 				17EE240F27652E1000CA8482 /* Color-Codable.swift */,
 				17EE24112765304700CA8482 /* Path-Curving.swift */,
+				17EE240E27652B0600CA8482 /* Info.plist */,
 				17EE24002765203000CA8482 /* Assets.xcassets */,
 				17EE24022765203000CA8482 /* Preview Content */,
 			);

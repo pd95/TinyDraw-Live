@@ -47,6 +47,8 @@ class Drawing: ObservableObject, ReferenceFileDocument {
 
     init() {}
 
+    // MARK: Loading from and saving to a file
+
     required init(configuration: ReadConfiguration) throws {
         if let data = configuration.file.regularFileContents {
             oldStrokes = try JSONDecoder().decode([Stroke].self, from: data)
@@ -64,6 +66,8 @@ class Drawing: ObservableObject, ReferenceFileDocument {
         return FileWrapper(regularFileWithContents: data)
     }
 
+    // MARK: Drawing interactions
+
     func add(point: CGPoint) {
         objectWillChange.send()
         currentStroke.points.append(point)
@@ -72,13 +76,13 @@ class Drawing: ObservableObject, ReferenceFileDocument {
     func finishedStroke() {
         objectWillChange.send()
         addStrokeWithUndo(currentStroke)
-//        oldStrokes.append(currentStroke)
-//        newStroke()
     }
 
     func newStroke() {
         currentStroke = Stroke(color: foregroundColor, width: lineWidth, spacing: lineSpacing, blur: blurAmount)
     }
+
+    // MARK: Undo & Redo support
 
     func undo() {
         objectWillChange.send()
