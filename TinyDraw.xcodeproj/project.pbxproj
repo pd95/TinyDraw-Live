@@ -11,6 +11,8 @@
 		17EE23FF2765203000CA8482 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE23FE2765203000CA8482 /* ContentView.swift */; };
 		17EE24012765203000CA8482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17EE24002765203000CA8482 /* Assets.xcassets */; };
 		17EE24042765203000CA8482 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17EE24032765203000CA8482 /* Preview Assets.xcassets */; };
+		17EE240B2765207000CA8482 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE240A2765207000CA8482 /* Stroke.swift */; };
+		17EE240D276520AE00CA8482 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE240C276520AE00CA8482 /* Drawing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		17EE23FE2765203000CA8482 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17EE24002765203000CA8482 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17EE24032765203000CA8482 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		17EE240A2765207000CA8482 /* Stroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
+		17EE240C276520AE00CA8482 /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				17EE23FC2765203000CA8482 /* TinyDrawApp.swift */,
 				17EE23FE2765203000CA8482 /* ContentView.swift */,
+				17EE240A2765207000CA8482 /* Stroke.swift */,
+				17EE240C276520AE00CA8482 /* Drawing.swift */,
 				17EE24002765203000CA8482 /* Assets.xcassets */,
 				17EE24022765203000CA8482 /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17EE240D276520AE00CA8482 /* Drawing.swift in Sources */,
 				17EE23FF2765203000CA8482 /* ContentView.swift in Sources */,
+				17EE240B2765207000CA8482 /* Stroke.swift in Sources */,
 				17EE23FD2765203000CA8482 /* TinyDrawApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +294,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -315,7 +323,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
