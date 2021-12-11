@@ -6,11 +6,14 @@ A small little drawing app fro iPad using SwiftUIs `Canvas` view. Implemented al
 
 - Drawing lines with drag gestures
 - Brush options:
-    - color (using `ColorPicker`)
-    - line width
-    - blur
-    - line/dash-spacing
+  - color (using `ColorPicker`)
+  - line width
+  - blur
+  - line/dash-spacing
 - Undo and redo
 - Loading from and saving to custom `tinydraw` file type (a JSON file with all strokes and their properties)
 - Supporting the standard iOS document picker
- 
+
+## Screenshots
+
+![House](_screenshots/House_iPad.png)
