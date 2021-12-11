@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var drawing: Drawing
+    @Environment(\.undoManager) var undoManager
 
     @State private var showingBrushOptions = false
 
@@ -41,6 +42,18 @@ struct ContentView: View {
             .ignoresSafeArea()
             .navigationTitle("TinyDraw")
             .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Button(action: drawing.undo) {
+                        Label("Undo", systemImage: "arrow.uturn.backward")
+                    }
+                    .disabled(undoManager?.canUndo == false)
+
+                    Button(action: drawing.redo) {
+                        Label("Redo", systemImage: "arrow.uturn.forward")
+                    }
+                    .disabled(undoManager?.canRedo == false)
+                }
+
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     ColorPicker("Color", selection: $drawing.foregroundColor)
                         .labelsHidden()
@@ -64,6 +77,9 @@ struct ContentView: View {
                         .padding()
                     }
                 }
+            }
+            .onAppear {
+                drawing.undoManager = undoManager
             }
         }
         .navigationViewStyle(.stack)

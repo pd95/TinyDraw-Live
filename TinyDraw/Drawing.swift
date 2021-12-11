@@ -10,6 +10,7 @@ import SwiftUI
 class Drawing: ObservableObject {
     private var oldStrokes = [Stroke]()
     private var currentStroke = Stroke()
+    var undoManager: UndoManager?
 
     init() {}
 
@@ -50,11 +51,39 @@ class Drawing: ObservableObject {
 
     func finishedStroke() {
         objectWillChange.send()
-        oldStrokes.append(currentStroke)
-        newStroke()
+        addStrokeWithUndo(currentStroke)
+//        oldStrokes.append(currentStroke)
+//        newStroke()
     }
 
     func newStroke() {
         currentStroke = Stroke(color: foregroundColor, width: lineWidth, spacing: lineSpacing, blur: blurAmount)
+    }
+
+    func undo() {
+        objectWillChange.send()
+        undoManager?.undo()
+    }
+
+    func redo() {
+        objectWillChange.send()
+        undoManager?.redo()
+    }
+
+    private func addStrokeWithUndo(_ stroke: Stroke) {
+        undoManager?.registerUndo(withTarget: self, handler: { drawing in
+            drawing.removeStrokeWithUndo(stroke)
+        })
+
+        oldStrokes.append(stroke)
+        newStroke()
+    }
+
+    private func removeStrokeWithUndo(_ stroke: Stroke) {
+        undoManager?.registerUndo(withTarget: self, handler: { drawing in
+            drawing.addStrokeWithUndo(stroke)
+        })
+
+        oldStrokes.removeLast()
     }
 }
