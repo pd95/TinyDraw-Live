@@ -10,9 +10,8 @@ import SwiftUI
 @main
 struct TinyDrawApp: App {
     var body: some Scene {
-        WindowGroup {
+        DocumentGroup(newDocument: Drawing.init) { file in
             ContentView()
-                .environmentObject(Drawing())
         }
     }
 }

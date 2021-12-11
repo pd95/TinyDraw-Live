@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
-class Drawing: ObservableObject {
+class Drawing: ObservableObject, ReferenceFileDocument {
     private var oldStrokes = [Stroke]()
     private var currentStroke = Stroke()
     var undoManager: UndoManager?
 
-    init() {}
+    static var readableContentTypes = [UTType(exportedAs: "com.yourcompany.tinydraw")]
 
     var strokes: [Stroke] {
         var all = oldStrokes
@@ -42,6 +43,25 @@ class Drawing: ObservableObject {
         didSet {
             currentStroke.blur = blurAmount
         }
+    }
+
+    init() {}
+
+    required init(configuration: ReadConfiguration) throws {
+        if let data = configuration.file.regularFileContents {
+            oldStrokes = try JSONDecoder().decode([Stroke].self, from: data)
+        } else {
+            throw CocoaError(.fileReadCorruptFile)
+        }
+    }
+
+    func snapshot(contentType: UTType) throws -> [Stroke] {
+        oldStrokes
+    }
+
+    func fileWrapper(snapshot: [Stroke], configuration: WriteConfiguration) throws -> FileWrapper {
+        let data = try JSONEncoder().encode(snapshot)
+        return FileWrapper(regularFileWithContents: data)
     }
 
     func add(point: CGPoint) {
@@ -86,4 +106,6 @@ class Drawing: ObservableObject {
 
         oldStrokes.removeLast()
     }
+
+
 }

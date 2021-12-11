@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Stroke {
+struct Stroke: Codable {
     var points = [CGPoint]()
     var color = Color.black
     var width = 3.0
