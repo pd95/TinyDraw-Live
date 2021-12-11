@@ -31,6 +31,18 @@ class Drawing: ObservableObject {
         }
     }
 
+    @Published var lineSpacing = 0.0 {
+        didSet {
+            currentStroke.spacing = lineSpacing
+        }
+    }
+
+    @Published var blurAmount = 0.0 {
+        didSet {
+            currentStroke.blur = blurAmount
+        }
+    }
+
     func add(point: CGPoint) {
         objectWillChange.send()
         currentStroke.points.append(point)
@@ -43,6 +55,6 @@ class Drawing: ObservableObject {
     }
 
     func newStroke() {
-        currentStroke = Stroke(color: foregroundColor, width: lineWidth)
+        currentStroke = Stroke(color: foregroundColor, width: lineWidth, spacing: lineSpacing, blur: blurAmount)
     }
 }

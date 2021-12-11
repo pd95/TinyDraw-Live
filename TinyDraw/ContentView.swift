@@ -20,7 +20,13 @@ struct ContentView: View {
                     var path = Path()
                     path.addLines(stroke.points)
 
-                    context.stroke(path, with: .color(stroke.color), style: StrokeStyle(lineWidth: stroke.width, lineCap: .round, lineJoin: .round))
+                    var contextCopy = context
+
+                    if stroke.blur > 0 {
+                        contextCopy.addFilter(.blur(radius: stroke.blur))
+                    }
+
+                    contextCopy.stroke(path, with: .color(stroke.color), style: StrokeStyle(lineWidth: stroke.width, lineCap: .round, lineJoin: .round, dash: [1, stroke.spacing * stroke.width]))
                 }
             }
             .gesture(
@@ -44,8 +50,14 @@ struct ContentView: View {
                     }
                     .popover(isPresented: $showingBrushOptions) {
                         LazyVGrid(columns: [.init(.flexible()), .init(.flexible())]) {
-                            Text("Width \(Int(drawing.lineWidth))")
+                            Text("Width: \(Int(drawing.lineWidth))")
                             Slider(value: $drawing.lineWidth, in: 1...100)
+
+                            Text("Softness: \(Int(drawing.blurAmount))")
+                            Slider(value: $drawing.blurAmount, in: 0...50)
+
+                            Text("Spacing: \(drawing.lineSpacing, format: .percent)")
+                            Slider(value: $drawing.lineSpacing, in: 0...5, step: 0.1)
                         }
                         .frame(width: 400)
                         .monospacedDigit()

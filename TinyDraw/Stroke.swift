@@ -11,4 +11,6 @@ struct Stroke {
     var points = [CGPoint]()
     var color = Color.black
     var width = 3.0
+    var spacing = 0.0
+    var blur = 0.0
 }
