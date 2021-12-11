@@ -19,6 +19,18 @@ class Drawing: ObservableObject {
         return all
     }
 
+    @Published var foregroundColor = Color.black {
+        didSet {
+            currentStroke.color = foregroundColor
+        }
+    }
+
+    @Published var lineWidth = 3.0 {
+        didSet {
+            currentStroke.width = lineWidth
+        }
+    }
+
     func add(point: CGPoint) {
         objectWillChange.send()
         currentStroke.points.append(point)
@@ -31,6 +43,6 @@ class Drawing: ObservableObject {
     }
 
     func newStroke() {
-        currentStroke = Stroke()
+        currentStroke = Stroke(color: foregroundColor, width: lineWidth)
     }
 }

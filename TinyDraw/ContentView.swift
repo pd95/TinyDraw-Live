@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var drawing: Drawing
 
+    @State private var showingBrushOptions = false
+
     var body: some View {
         NavigationView {
             Canvas { context, size in
@@ -32,6 +34,25 @@ struct ContentView: View {
             )
             .ignoresSafeArea()
             .navigationTitle("TinyDraw")
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    ColorPicker("Color", selection: $drawing.foregroundColor)
+                        .labelsHidden()
+
+                    Button("Brush") {
+                        showingBrushOptions.toggle()
+                    }
+                    .popover(isPresented: $showingBrushOptions) {
+                        LazyVGrid(columns: [.init(.flexible()), .init(.flexible())]) {
+                            Text("Width \(Int(drawing.lineWidth))")
+                            Slider(value: $drawing.lineWidth, in: 1...100)
+                        }
+                        .frame(width: 400)
+                        .monospacedDigit()
+                        .padding()
+                    }
+                }
+            }
         }
         .navigationViewStyle(.stack)
     }
