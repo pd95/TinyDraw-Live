@@ -60,8 +60,9 @@ struct ContentView: View {
                 ColorPicker("Color", selection: $drawing.foregroundColor)
                     .labelsHidden()
 
-                Button("Brush") {
-                    showingBrushOptions.toggle()
+                Button(action: { showingBrushOptions.toggle() }) {
+                    Label("Brush", systemImage: "paintbrush.pointed.fill")
+                        .foregroundColor(.primary)
                 }
                 .popover(isPresented: $showingBrushOptions) {
                     LazyVGrid(columns: [.init(.flexible()), .init(.flexible())]) {
